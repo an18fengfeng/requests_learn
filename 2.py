@@ -23,3 +23,9 @@ dic = {
 json_str = json.dumps(dic)   #dumps将字典类型转成json字符串类型
 print(json_str)   #json的键值只能是双引号，字典单双都可以
 print(type(json_str))  #发现json也是字符串类型
+
+#POST请求
+b = requests.post('http://httpbin.org/post',json=data)
+#这里的传参参数是data或者json，后面的put，patch也是，通常只有get用params传参
+#然后这样做可以不让参数暴露在url里面
+print(b.text)#参数全在form表单里面（用data传参的前提下），要不就在json里面（用json传参）
