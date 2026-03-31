@@ -29,3 +29,13 @@ b = requests.post('http://httpbin.org/post',json=data)
 #这里的传参参数是data或者json，后面的put，patch也是，通常只有get用params传参
 #然后这样做可以不让参数暴露在url里面
 print(b.text)#参数全在form表单里面（用data传参的前提下），要不就在json里面（用json传参）
+
+
+#设置请求头
+import requests
+headers = {
+        'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36 Edg/146.0.0.0',
+        'my-test':'Hello World'
+}#User-Agent（标准头）     My-Test（自定义头）额外传东西用的
+r = requests.get('https://httpbin.org/get', headers=headers)
+print(r.text)
